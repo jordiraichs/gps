@@ -1,6 +1,7 @@
 package com.dam_m8.gps
 
 import android.Manifest
+import android.annotation.SuppressLint
 import android.content.Context
 import android.content.pm.PackageManager
 import android.location.Location
@@ -41,14 +42,4 @@ class MainActivity : AppCompatActivity(), LocationListener {
         tvGpsLocation.text = "Latitud: " + location.latitude + " // Longitud: " + location.longitude
     }
 
-    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
-        if (requestCode == locationPermissionCode) {
-            if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                Toast.makeText(this, "Permís ACCEPTAT", Toast.LENGTH_SHORT).show()
-            }
-            else {
-                Toast.makeText(this, "Permís DENEGAT", Toast.LENGTH_SHORT).show()
-            }
-        }
-    }
 }
